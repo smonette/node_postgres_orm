@@ -12,12 +12,20 @@ Models.Person = Person;
 //   console.log(people);
 // });
 
-Models.Person.findBy("id", 1, function(err, person){
-  console.log("found", person);
-  // person.update({firstname: "sam", lastname: "creek"}, function(err, person){
-  //   console.log("UPDATED:", person)
-  // });
-})
+// Models.Person.findBy("id", 1, function(err, person){
+//   console.log("found", person);
+//   person.update({firstname: "sam", lastname: "creek"}, function(err, person){
+//     console.log("UPDATED:", person)
+//   });
+// })
+
+// Models.Person.findBy("id", 1, function(err, person){
+//   console.log("found", person);
+//   var id=1;
+//   person.destroy(id, function(err, person){
+//     console.log("UPDATED:", person)
+//   });
+// })
 
 
 // this brings it to our project

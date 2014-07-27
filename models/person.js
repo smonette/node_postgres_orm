@@ -27,7 +27,6 @@ Person.findBy = function(key, val, callback) {
   var myQuery = "SELECT * FROM people WHERE "+key+" =$1";
   db.query(myQuery,[val], function(err, res){
       var foundRow, foundPerson;
-      // do something here with res
       foundRow = res.rows;
       foundPerson = new Person(foundRow[0]); 
       callback(err, foundPerson);
@@ -76,8 +75,8 @@ Person.prototype.update = function(params, callback) {
   });
 }
 
-Person.prototype.destroy = function(){
-  db.query("DELETE FROM people ", [this.id], function(err, res) {
+Person.prototype.destroy = function(id, callback){
+  db.query("DELETE FROM people WHERE id = $1", [this.id], function(err, res) {
     callback(err)
   });
 }

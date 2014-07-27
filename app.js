@@ -4,9 +4,8 @@ var express = require('express'),
   Person = require('./models/main.js').Person,
   app = express();
 
+// app.use("/styles", express.static(__dirname + '/styles'));
 app.use(express.static(__dirname + '/public'));
-
-
 
 app.set("view engine", "ejs");
 // Middleware
@@ -37,7 +36,11 @@ app.get("/people/:id", function(req,res){
 
 
 app.get("/people/:id/edit", function(req,res){
-  res.render("people/edit", {person: {person:person} });
+  var personId = Number(req.params.id);
+  Person.findBy("id", personId, function(err, ourPerson) {
+    res.render("people/edit", {person: ourPerson});
+  });
+
 });
 
 
@@ -45,20 +48,37 @@ app.get("/people/:id/edit", function(req,res){
 app.post("/people", function(req, res){
   var personDeets = req.body.person;
   Person.create (personDeets, function(err, newPerson){
-
   });
   res.redirect("/people");
 });
 
 
 app.delete("/people/:id", function(req, res){
+    var personId = Number(req.params.id);
+
+    Person.findBy("id", personId, function(err, ourPerson) {
+      ourPerson.destroy(personId, function(err, ourPerson){
+      
+      });
+    });
   res.redirect("/people");
 });
 
 
 app.put("/people/:id", function(req,res){
+  
+  var personId = Number(req.params.id);
+
+  Person.findBy("id", personId, function(err, ourPerson) {
+    console.log("our person:" + ourPerson);
+    ourPerson.update({firstname: req.body.person.firstname, lastname: req.body.person.lastname}, function(err, ourPerson){
+      console.log("first name "+ req.body.person.firstname);
+      console.log("last name "+ req.body.person.lastname);
+    });
+  });
+
   res.redirect("/people");
-})
+});
 
 
 app.listen(3000, function(){

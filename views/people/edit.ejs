@@ -1,8 +1,44 @@
 <!doctype html>
 <html>
   <head>
+    <title>Edit <%= person.firstname%> <%= person.lastname%></title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
   </head>
   <body>
+    <div class="container container-fluid">
+      <div class="row header">
+        <div class="col-xs-12">
+          <h1><%= person.firstname%> <%= person.lastname%></h1> <a href="/people">Back to index &raquo;</a>
+        </div>
+      </div>
+      
+      <form class="form-horizontal" role="form" method="post" action="/people/<%= person.id%>?_method=put">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">First Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="person[firstname]" value="<%= person.firstname%>">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Last Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control"  name="person[lastname]" value="<%= person.lastname%>">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="nav-button">Update &raquo;</button>
+          </div>
+        </div>
+      </form>
 
+
+      <form method="post" action="/people/<%= person.id%>?_method=delete">
+         <button class="nav-button remove">Remove &raquo;</button>
+      </form>
+      <br>
+
+    </div>
   </body>
 </html>
