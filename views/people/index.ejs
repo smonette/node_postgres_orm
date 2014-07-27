@@ -1,9 +1,15 @@
 <!doctype html>
 <html>
   <head>
+    <title>My People Index</title>
   </head>
   <body>
-    People Index
-
+    <h1>My People Index</h1>
+    <ul>
+    <% people.forEach(function(person){ %>
+        <li><a href="people/<%= person.id %>"><%= person.firstname%> <%= person.lastname%></a></li>
+      <% }) %>
+    </ul>
+    <a href="/people/new">Add new person &raquo;</a>
   </body>
 </html>

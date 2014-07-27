@@ -11,6 +11,10 @@ CREATE TABLE IF NOT EXISTS people (
   created_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
+INSERT INTO people (firstname, lastname) VALUES ('Cameron', 'Jacoby');
+INSERT INTO people (firstname, lastname) VALUES ('Alli', 'Cernoch');
+INSERT INTO people (firstname, lastname) VALUES ('Connie', 'Chang');
+INSERT INTO people (firstname, lastname) VALUES ('Elie', 'Schoppik');
 
 \d+ people
 \q

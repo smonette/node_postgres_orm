@@ -1,7 +1,14 @@
 <!doctype html>
 <html>
   <head>
+    <title>Create New Person</title>
   </head>
   <body>
+    <h1>Create New Person</h1>
+    <form method="POST" action="/people/">
+      <input type="text" name="person[firstname]" placeholder="First Name"><br>
+      <input type="text" name="person[lastname]" placeholder ="Last Name"><br>
+      <button>Add New Person &raquo;</button>
+    </form>
   </body>
 </html>
