@@ -4,10 +4,15 @@
     <title>My Friends!</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="container">
-      <h1>My Friends</h1>
+    <div class="container container-fluid">
+      <div class="row header">
+        <div class="col-xs-12">
+          <h1>My Friends!</h1>
+        </div>
+      </div>
       <ul>
       <% people.forEach(function(person){ %>
           <li><a href="/people/<%= person.id %>"><%= person.firstname%> <%= person.lastname%></a></li>

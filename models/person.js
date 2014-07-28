@@ -3,6 +3,7 @@ var db = require('./db');
 function Person(params) {
   this.firstname = params.firstname;
   this.lastname = params.lastname;
+  this.twitter = params.twitter;
   this.id = params.id;
 };
 
@@ -35,8 +36,8 @@ Person.findBy = function(key, val, callback) {
 
 
 Person.create = function(params, callback){
-  var myQuery = "INSERT INTO people (firstname, lastname) VALUES ($1, $2)";
-  db.query(myQuery, [params.firstname, params.lastname], function(err, res){
+  var myQuery = "INSERT INTO people (firstname, lastname, twitter) VALUES ($1, $2, $3)";
+  db.query(myQuery, [params.firstname, params.lastname, params.twitter], function(err, res){
     var createdRow, newPerson;
     callback(err, newPerson);
   });
@@ -70,6 +71,7 @@ Person.prototype.update = function(params, callback) {
       updatedRow = res.rows[0];
       _this.firstname = updatedRow.firstname;
       _this.lastname = updatedRow.lastname;
+      _this.twitter = updatedRow.twitter;
     }
     callback(err, _this)
   });

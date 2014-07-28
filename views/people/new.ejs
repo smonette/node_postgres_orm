@@ -4,10 +4,15 @@
     <title>Create New Person</title>
    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="container">
-      <h1>Create New Person</h1>
+    <div class="container container-fluid">
+      <div class="row header">
+        <div class="col-xs-12">
+          <h1>Add New Friend</h1> <a href="/people">Back to index &raquo;</a>
+        </div>
+      </div>
 
       <form class="form-horizontal" role="form" method="POST" action="/people/">
         <div class="form-group">
@@ -22,9 +27,15 @@
             <input type="text" class="form-control" name="person[lastname]" placeholder ="Last Name">
           </div>
         </div>
+         <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Twitter Handle</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="person[twitter]" value="Twitter Handle">
+          </div>
+        </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button class="nav-button">Add New Person &raquo;</button>
+            <button class="nav-button">Add New Friend &raquo;</button>
           </div>
         </div>
       </form>

@@ -3,26 +3,34 @@
   <head>
     <title><%= person.firstname%> <%= person.lastname%></title>
        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+       <link rel="stylesheet" type="text/css" href="/css/styles.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="container">
-      <h1><%= person.firstname%> <%= person.lastname%></h1>
+    <div class="container container-fluid">
+
+      <div class="row header">
+        <div class="col-xs-12">
+          <h1><%= person.firstname%> <%= person.lastname%></h1> <a href="/people">Back to index &raquo;</a>
+        </div>
+      </div>
+
+
+      
       <ul>
         <li><b>First Name:</b> <%= person.firstname%></li>
         <li><b>Last Name:</b> <%= person.lastname%></li>
-        <li><b>User ID:</b> #<%= person.id%></li>
+        <li><b>Twitter:</b> <a href="http://www.twitter.com/<%= person.twitter%>"><%= person.twitter%></a></li>
       </ul>
+
       <a href="/people/<%= person.id%>/edit" class="nav-button">Edit &raquo;</a>
+
       <br>
 
-    <form method="post" action="/people/<%= person.id%>?_method=delete">
+      <form method="post" action="/people/<%= person.id%>?_method=delete">
          <button class="nav-button remove">Remove &raquo;</button>
       </form>
 
-
-      <br>
-      <a href="/people">Go back &raquo;</a>
 
     </div>
   </body>

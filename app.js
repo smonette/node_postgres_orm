@@ -12,6 +12,13 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded());
 app.use(methodOverride("_method"));
 
+app.get("/", function(req, res){
+  Person.all(function(err,allPeople){
+    res.render("people/index", {people: allPeople})
+  });
+});
+
+
 app.get("/people", function(req, res){
   Person.all(function(err,allPeople){
     res.render("people/index", {people: allPeople})
@@ -70,10 +77,8 @@ app.put("/people/:id", function(req,res){
   var personId = Number(req.params.id);
 
   Person.findBy("id", personId, function(err, ourPerson) {
-    console.log("our person:" + ourPerson);
-    ourPerson.update({firstname: req.body.person.firstname, lastname: req.body.person.lastname}, function(err, ourPerson){
-      console.log("first name "+ req.body.person.firstname);
-      console.log("last name "+ req.body.person.lastname);
+    ourPerson.update({firstname: req.body.person.firstname, lastname: req.body.person.lastname, twitter: req.body.person.twitter}, function(err, ourPerson){
+
     });
   });
 
