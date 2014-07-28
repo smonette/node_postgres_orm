@@ -23,12 +23,12 @@
         <li><b>Twitter:</b> <a href="http://www.twitter.com/<%= person.twitter%>"><%= person.twitter%></a></li>
       </ul>
 
-      <a href="/people/<%= person.id%>/edit" class="nav-button">Edit &raquo;</a>
+      <a href="/people/<%= person.id%>/edit" class="nav-button">Edit <span class="glyphicon glyphicon-pencil"></span></a>
 
       <br>
 
       <form method="post" action="/people/<%= person.id%>?_method=delete">
-         <button class="nav-button remove">Remove &raquo;</button>
+         <button class="nav-button remove">Remove <span class="glyphicon glyphicon-trash"></span></button>
       </form>
 
 
