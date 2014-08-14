@@ -28,8 +28,12 @@ Person.findBy = function(key, val, callback) {
   var myQuery = "SELECT * FROM people WHERE "+key+" =$1";
   db.query(myQuery,[val], function(err, res){
       var foundRow, foundPerson;
-      foundRow = res.rows;
-      foundPerson = new Person(foundRow[0]); 
+      if (err) {
+        console.log("Something went wrong!");
+      } else {
+        foundRow = res.rows[0];
+        foundPerson = new Person(foundRow); 
+      }
       callback(err, foundPerson);
   });
 };

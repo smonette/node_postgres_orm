@@ -4,7 +4,6 @@ var express = require('express'),
   Person = require('./models/main.js').Person,
   app = express();
 
-// app.use("/styles", express.static(__dirname + '/styles'));
 app.use(express.static(__dirname + '/public'));
 
 app.set("view engine", "ejs");
